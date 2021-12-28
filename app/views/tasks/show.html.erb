@@ -1,0 +1,25 @@
+<p>
+  <strong>Category:</strong>
+  <%= @task.category.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @task.body %>
+</p>
+
+<p>
+  <strong>Task date:</strong>
+  <%= @task.task_date %>
+</p>
+
+<%= link_to 'Edit', edit_category_task_path(@task.category, @task) %>
+<%= link_to 'Delete', category_task_path(@task.category, @task), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<%= link_to 'Back to task category', @task.category %> |
+<%= link_to 'Back to main', categories_path %>

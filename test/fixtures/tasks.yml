@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_id: 1
+  name: MyString
+  body: MyText
+  task_date: 2021-12-23
+  category: one
+
+two:
+  category_id: 1
+  name: MyString
+  body: MyText
+  task_date: 2021-12-23
+  category: two

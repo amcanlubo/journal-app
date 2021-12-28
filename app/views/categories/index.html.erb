@@ -1,0 +1,61 @@
+<section class="vh-100">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center pb-4">
+      <h1 >Categories</h1>
+      <div >
+        <%= link_to "New Category", new_category_path ,class:"btn btn-dark" %>
+        <%= link_to "See Tasks for today", "#today" ,class:"btn btn-warning" %>
+      </div>
+    </div>
+
+    <% @categories.each do |category| %>    
+    <div class="card  mb-3 justify-content-center">
+      <div class="p-2 d-flex justify-content-between align-items-center">
+        
+          <div class="h4 flex justify-center align-items-center"><%= link_to category.name , category, class:'gray-text text' %></div>
+          <div class="flex">
+            <%= link_to "Edit", edit_category_path(category),class:'gray-text text' %>
+            <%= link_to "Delete", category_path(category),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },class:'gray-text text' %>
+          </div>
+        
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
+
+<section id="today" class="vh-100 w-full bg-dark">
+  <div class="container border-2 border-warning rounded bg-dark h-100 w-full h-100">
+  <div class="h-auto m-4 py-4 px-10 rounded-md">
+      <h1 class='text-2xl text-warning text-center font-bold'>ALL TASKS FOR TODAY</h1>
+      <p class='text-center'><%= DateTime.now.strftime('%a, %d/%b/%Y') %></p>
+      <br>
+      <br>
+      
+      <%# <%= render 'tasks/today', tasks: @tasks %> 
+      <% if @today.any? %>
+     
+      <% @today.each do |task| %>
+      <div class="d-flex align-content-start flex-wrap gap-4 ">
+        <div class="card  bg-warning mb-3">
+          <div class="card-header">
+            <div class="d-flex justify-content-between">
+              <p class="text-gray "><%= task.category.name %> </p>
+              <p><%=link_to '✗', category_task_path(task.category, task), method: :delete, data: { confirm: "Are you sure?" }, class:'h5 text text-dark' %></p>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= task.name %></h5>
+            <p class="card-text"><%= task.body %></p>
+          </div>
+        </div>
+      <% end %>  
+      <% else %>
+      <span>No tasks today :(</span>
+      <% end%>
+      </div>  
+    </div>
+  </div>
+</section>

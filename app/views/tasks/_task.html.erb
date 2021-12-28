@@ -1,0 +1,32 @@
+
+  <div class="card">
+    <div class="card-header bg-warning h5">
+    ALL TASKS
+    </div>
+      <table class="table text-center">
+          <thead class="text-center"> 
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Title</th>
+              <th scope="col">Details</th>
+              <th scope="col">Task date</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <% @tasks.each do |task| %>
+          <tr>
+              <td>&#9744;</td>
+              <td><%= task.name %></td>
+              <td><%= task.body %></td>
+              <td><%= task.task_date %></td>
+              <td><%= link_to 'Edit', edit_category_task_path(task.category, task) %></td>
+              <td><%= link_to 'Delete', [task.category, task], method: :delete, data: { confirm: "Are you sure?" } %></td>
+          </tr>
+          <% end %> 
+          <tbody>
+      </table>
+  </div>
+

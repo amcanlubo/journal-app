@@ -1,0 +1,21 @@
+<div class='border border-secondary rounded p-4'>
+  <%= form_with model: [ @category, @category.tasks.build ]  do |form| %>
+    
+    <div class="field mb-2">
+      <%= form.label :name ,class:"form-label"%>
+      <%= form.text_field :name ,class:"form-control"%>
+    </div>
+    <div class="field mb-2">
+      <%= form.label :body ,class:"form-label"%>
+      <%= form.text_area :body ,class:"form-control"%>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.label :task_date ,class:"form-label"%>
+      <%= form.date_field :task_date ,class:"form-control"%>
+    </div>
+    <div class="field mb-2">
+      <%= form.submit 'Save' ,class:'btn btn-dark' %>
+    </div>
+  <% end %>
+</div>

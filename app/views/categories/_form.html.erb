@@ -1,0 +1,17 @@
+
+<%= form_with model: category do |form| %> 
+  
+  <div class="field mb-2">    
+    <%= form.label :name ,class:"form-label"%><br>
+    <%= form.text_field :name ,class:"form-control" %>
+    <% category.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-dark" %>
+  </div>
+  
+<% end %>
+
