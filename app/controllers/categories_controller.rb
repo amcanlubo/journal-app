@@ -20,9 +20,9 @@ class CategoriesController < ApplicationController
         @category = Category.new(category_params)
         respond_to do |format|
             if @category.save
-                format.html{redirect_to @category,notice:"Category was successfully created."}
+                format.html{ redirect_to @category,notice:"Category was successfully created."}
             else
-                render :new, status: :unprocessable_entity
+                format.html{ render :new, status: :unprocessable_entity, alert:"Invalid category!" }
             end
         end
     end
@@ -35,9 +35,10 @@ class CategoriesController < ApplicationController
         @category = Category.find(params[:id])
         respond_to do |format|
             if @category.update(category_params)
-                format.html{redirect_to @category,notice: "Category was successfully updated."}
+                format.html{redirect_to @category, notice: "Category was successfully updated."}
             else
-                render :edit, status: :unprocessable_entity
+                format.html{ render :edit, status: :unprocessable_entity }
+                # render :edit, status: :unprocessable_entity
             end
         end
     end
@@ -46,7 +47,7 @@ class CategoriesController < ApplicationController
         respond_to do |format|
             @category = Category.find(params[:id])
             @category.destroy
-            format.html{redirect_to categories_path, notice: "Category was successfully deleted."}
+            format.html{ redirect_to categories_path, notice: "Category was successfully deleted." }
         end
     end
 

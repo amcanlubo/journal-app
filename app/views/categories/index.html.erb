@@ -10,9 +10,9 @@
     <% if @categories.any? %>
         <% @categories.each do |category| %>    
           <div class="card  mb-3 justify-content-center">
-            <div class="p-2 d-flex justify-content-between align-items-center">
+            <div class="p-2 d-flex justify-content-between align-items-center ">
               
-                <div class="h4 flex justify-center align-items-center"><%= link_to category.name , category, class:'gray-text text' %></div>
+                <div class="d-flex fw-bold  p-2 bd-highlight"><%= link_to category.name , category, class:'gray-text text' %></div>
                 <div class="flex">
                   <%= link_to "Edit", edit_category_path(category),class:'gray-text text' %>
                   <%= link_to "Delete", category_path(category),
@@ -64,7 +64,7 @@
 <% else %>
 <div class="container text-center">
 <div class=flex justify-around">
-    <div><%= render partial: "images/nodataSVG.html.erb" %><div>
+    <div><%= render partial: "images/nodataSVG" %><div>
     <span class="text-dark">No category yet.</span>
     <div>
 <div>
