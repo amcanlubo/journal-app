@@ -15,7 +15,6 @@
 
  /* Custom bootstrap variables must be set or imported *before* bootstrap. */
  @import "bootstrap";
- @import "toastr";
  
 
 
@@ -43,4 +42,12 @@
 
 .text {
     text-decoration: none;
+}
+
+
+.alert-success{
+    color: green;
+  }
+.alert-danger{
+color: red;
 }
