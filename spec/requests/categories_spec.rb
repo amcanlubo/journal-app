@@ -2,15 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'CategoriesControllers', type: :request do
 
-  before (:each) do
+
+  before do
     sign_in create(:user)
     Category.destroy_all
     Category.create!(name:'A valid name')
   end
+  
 
-  after(:all) do
-    User.destroy_all
-  end
 
   describe 'GET categories#index' do
     it 'returns the index page' do

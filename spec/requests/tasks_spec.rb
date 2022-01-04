@@ -1,6 +1,6 @@
- require 'rails_helper'
+require 'rails_helper'
 
-RSpec.describe "/tasks", type: :request do
+RSpec.describe 'TasksController', type: :request do
     
     before(:each) do 
       # User.destroy_all
